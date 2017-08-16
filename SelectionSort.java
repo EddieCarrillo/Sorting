@@ -7,7 +7,7 @@ public class SelectionSort{
 
       System.out.print("Before sorted: \t");
       printArr(arr);
-      InsertionSort.sort(arr);
+      SelectionSort.sort(arr);
       System.out.print("After sorted: \t");
       printArr(arr);
       System.out.println("Is correct solution: " + checkSolution(solution, arr));
@@ -17,9 +17,12 @@ public class SelectionSort{
 
     public static void sort(int[] arr){
       //Iterate throughout all of the unsorted portion.
-      for(int i = 1; i < arr.length; i++){
-        int lastSortedItem = i - 1;
+      for(int i = 0; i < arr.length; i++){
+        int lastSortedItem = i;
         int minIndex = findMin(arr, i);
+        System.out.print("min: " + arr[minIndex] +  "\t");
+        printArr(arr);
+        System.out.println();
         swap(arr, lastSortedItem, minIndex);
 
       }
@@ -28,9 +31,10 @@ public class SelectionSort{
 /*returns index of min item in list.*/
     public static int findMin(int[] arr, int startIndex){
       int min = startIndex;
-      for(int i = startIndex + 1; i < arr.length - 1; i++){
+      for(int i = startIndex + 1; i < arr.length; i++){
         if (arr[i] < arr[min]){ //If we found new min candidate
-            min = i;
+          System.out.println(arr[i]);
+                      min = i;
         }
       }
 
